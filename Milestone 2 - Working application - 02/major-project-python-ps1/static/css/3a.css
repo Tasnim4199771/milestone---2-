@@ -1,0 +1,333 @@
+/* --- Global Resets and Variables --- */
+:root {
+    --primary-color: #007bff; /* Vibrant Blue for actions/highlights */
+    --secondary-color: #6c757d; /* Gray for subtle text/borders */
+    --background-light: #f8f9fa; /* Page background */
+    --background-white: #ffffff; /* Content/Card background */
+    --text-dark: #212529; /* Dark text */
+    --warning-color: #ffc107; /* Orange for high infection rate warning */
+    --apply-btn-color: #28a745; /* Green for apply button */
+    --border-radius: 6px;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Navigation Bar (Shared Style) --- */
+.topnav {
+    background-color: var(--background-white);
+    box-shadow: var(--shadow-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-title span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+}
+
+.nav-links a.active {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+}
+
+.search-container input[type=text] {
+    padding: 8px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    width: 150px;
+}
+
+/* --- Main Layout Grid --- */
+.main-container {
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Filter panel is wider, data panel fills rest */
+    gap: 25px;
+}
+
+/* --- Filter Panel --- */
+.filter-panel {
+    background-color: var(--background-white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.filter-panel h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--background-light);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.filter-line select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    appearance: none; /* Remove default styling for better control */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236c757d'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+    margin-bottom: 15px;
+}
+
+.filter-line select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.apply-reset {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.apply, .reset {
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.apply {
+    background-color: var(--apply-btn-color);
+    color: var(--background-white);
+    flex: 2;
+    margin-right: 10px;
+}
+
+.apply:hover {
+    background-color: #1e7e34;
+}
+
+.reset {
+    background-color: var(--secondary-color);
+    color: var(--background-white);
+    flex: 1;
+}
+
+.reset:hover {
+    background-color: #5a6268;
+}
+
+.notes-box {
+    background-color: #fff3cd; /* Light warning color */
+    border: 1px solid #ffeeba;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-top: 30px;
+    color: #856404; /* Darker text for contrast */
+}
+
+.notes-box h4 {
+    margin-top: 0;
+    border-bottom: 1px dashed #ffeeba;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.notes-box p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+/* --- Data Panel --- */
+.data-panel {
+    background-color: var(--background-white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.data-panel h3 {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--background-light);
+}
+
+.data-list-container {
+    overflow-x: auto; /* Allows horizontal scrolling for many columns */
+}
+
+/* --- Data Rows (Grid Layout for Data) --- */
+.data-entry {
+    display: grid;
+    /* Define 5 columns: Country (1.5fr), Region (1fr), Target Pop (1.2fr), Cases (1.2fr), Rate (1fr) */
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.2fr 1fr;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.data-entry.header {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    font-weight: 700;
+    padding: 15px 0;
+    border-radius: 4px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.data-field {
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.data-field.country {
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.data-field.population, .data-field.cases {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.data-field.percentage {
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Highlight for High Infection Rate */
+.data-field.percentage.high {
+    color: #721c24; /* Dark red text */
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.data-entry:hover {
+    background-color: #f1f1f1;
+}
+
+.data-entry.header:hover {
+    background-color: var(--primary-color);
+}
+
+.data-entry.no-results {
+    display: block;
+    text-align: center;
+    padding: 30px;
+    color: var(--secondary-color);
+    font-style: italic;
+    font-size: 1.1rem;
+    border: 1px dashed #ced4da;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+}
+
+/* --- Footer (Shared Style) --- */
+footer {
+    background-color: var(--text-dark);
+    color: var(--background-light);
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1000px) {
+    .main-container {
+        grid-template-columns: 1fr; /* Stack filter and data panels */
+    }
+    .filter-panel {
+        position: relative; /* Remove sticky on small screens */
+        top: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .topnav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .nav-links a {
+        padding: 8px 10px;
+        margin: 5px 0;
+    }
+}

@@ -1,0 +1,303 @@
+/* --- Global Resets and Variables --- */
+:root {
+    --primary-color: #007bff; /* Vibrant Blue for actions/highlights */
+    --secondary-color: #6c757d; /* Gray for text/borders */
+    --background-light: #f8f9fa; /* Page background */
+    --background-white: #ffffff; /* Content/Card background */
+    --text-dark: #212529; /* Dark text */
+    --danger-color: #dc3545; /* Red for low coverage */
+    --success-color: #28a745; /* Green for high data/status */
+    --border-radius: 6px;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Navigation Bar (Shared Style) --- */
+.topnav {
+    background-color: var(--background-white);
+    box-shadow: var(--shadow-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-title span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+}
+
+.nav-links a.active {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+}
+
+.search-container input[type=text] {
+    padding: 8px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    width: 150px;
+}
+
+/* --- Main Layout Grid --- */
+.container {
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Filter panel is fixed width, data panel fills rest */
+    gap: 25px;
+}
+
+/* --- Filter Panel --- */
+.filter-panel {
+    background-color: var(--background-white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    height: fit-content; /* Prevents it from stretching to the height of the data panel */
+    position: sticky; /* Keep it visible when scrolling data */
+    top: 20px;
+}
+
+.filter-panel h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--background-light);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-panel label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.filter-panel input[type="text"], 
+.filter-panel input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.filter-panel input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.apply-reset {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.apply, .reset {
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.apply {
+    background-color: var(--success-color);
+    color: var(--background-white);
+    flex: 2; /* Make apply button slightly bigger */
+    margin-right: 10px;
+}
+
+.apply:hover {
+    background-color: #1e7e34;
+}
+
+.reset {
+    background-color: var(--secondary-color);
+    color: var(--background-white);
+    flex: 1;
+}
+
+.reset:hover {
+    background-color: #5a6268;
+}
+
+/* --- Data Panel --- */
+.data-panel {
+    background-color: var(--background-white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.data-panel h3 {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--background-light);
+}
+
+.data-list-container {
+    overflow-x: auto; /* Allows horizontal scrolling for many columns */
+}
+
+/* --- Data Rows (Grid Layout for Data) --- */
+.data-entry {
+    display: grid;
+    /* Define 7 columns with appropriate widths */
+    grid-template-columns: 1.5fr 1fr 1.2fr 0.8fr 1.2fr 1.2fr 1fr; 
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.data-entry.header {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    font-weight: 700;
+    padding: 15px 0;
+    border-radius: 4px;
+    position: sticky;
+    top: 0; /* Sticky header for long lists */
+    z-index: 10;
+}
+
+.data-field {
+    text-align: left;
+    white-space: nowrap; /* Prevent data from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.data-field.country {
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.data-field.percentage {
+    font-weight: 700;
+}
+
+.data-field.percentage.low {
+    color: var(--danger-color); /* Highlight low coverage in red */
+    background-color: rgba(220, 53, 69, 0.1);
+    padding: 3px 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.data-entry:hover {
+    background-color: #f1f1f1; /* Subtle row highlight on hover */
+}
+
+.data-entry.header:hover {
+    background-color: var(--primary-color); /* Disable hover on header */
+}
+
+.data-entry.no-results {
+    display: block;
+    text-align: center;
+    padding: 30px;
+    color: var(--secondary-color);
+    font-style: italic;
+    font-size: 1.1rem;
+    border: 1px dashed #ced4da;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+}
+
+/* --- Footer (Shared Style) --- */
+footer {
+    background-color: var(--text-dark);
+    color: var(--background-light);
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1000px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* Stack filter and data panels */
+    }
+    .filter-panel {
+        position: relative; /* Remove sticky on small screens */
+        top: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .topnav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .nav-links a {
+        padding: 8px 10px;
+        margin: 5px 0;
+    }
+}
