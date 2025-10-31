@@ -1,0 +1,119 @@
+/*
+ * Compatible CSS Style for Level 2 Sub-task A (Database List View)
+ *
+ */
+
+/* ===== Header/Title Consistency Styles ===== */
+
+/* Style for the heading in the data panel for clarity */
+.data-panel h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+/* Style for the heading in the filter panel for clarity and separation */
+.filter-panel h2 {
+    color: #333;
+    border-bottom: 2px solid #04AA6D; /* Use the primary green for a separator */
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+/* ===== Data List Structure (Replaces Table) ===== */
+
+/* Data List Container - Gives the overall panel look */
+.data-list-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures borders are contained and neat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+}
+
+/* Data Entry (Row) - Uses CSS Grid to define columns */
+.data-entry {
+    display: grid;
+    /* CORRECTED: Define 7 columns for: Country, Region, Antigen Type, Year, Target Pop, Doses, Coverage Rate */
+    grid-template-columns: 1.2fr 1fr 1.8fr 0.7fr 1.2fr 1.2fr 1fr;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+/* Header Row Style */
+.data-entry.header {
+    background-color: #04AA6D; /* Match active nav link color (primary green) */
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid #048858;
+}
+
+/* Alternating Row Colors (Striped effect for readability) */
+.data-list-container .data-entry:nth-child(2n) {
+    /* Targets the even-numbered rows (starting from the first data row after the header) */
+    background-color: #f7f7f7; /* Light gray for subtle striping */
+}
+
+/* Remove bottom border from the last item */
+.data-list-container .data-entry:last-child {
+    border-bottom: none;
+}
+
+/* ===== Individual Data Field Styling ===== */
+
+.data-field {
+    padding-right: 10px;
+    /* Important for grid layout: prevents text from breaking the column structure */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Center-align and bold the percentage for visual emphasis */
+.data-field.percentage {
+    font-weight: bold;
+    text-align: center;
+    color: #04AA6D; /* Highlight percentage with primary green */
+}
+
+/* ===== Filter Panel Input/Button Consistency ===== */
+
+/* Apply/Reset Button Styling */
+.apply-reset {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.apply-reset button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    flex-grow: 1;
+    transition: background-color 0.2s;
+}
+
+.apply-reset .apply {
+    background-color: #04AA6D; /* Primary color */
+    color: white;
+}
+
+.apply-reset .apply:hover {
+    background-color: #048858;
+}
+
+.apply-reset .reset {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.apply-reset .reset:hover {
+    background-color: #e0e0e0;
+}

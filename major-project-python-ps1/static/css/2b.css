@@ -1,0 +1,219 @@
+/* ===== General Layout ===== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* ===== Top Navigation ===== */
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-links a {
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 14px 16px;
+}
+
+.nav-links a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-links a.active {
+  background-color: #04AA6D;
+  color: white;
+  border-radius: 4px;
+}
+
+.search-container input {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+}
+
+/* ===== Filter Form ===== */
+.filter-form {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 40px auto;
+  border-radius: 12px;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.filter-form h3 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #111;
+}
+
+/* Centered and clean filter line */
+.filter-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+}
+
+.filter-line label {
+  font-weight: bold;
+  margin-right: 6px;
+  color: #111;
+}
+
+.filter-line select,
+.filter-line input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 150px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Buttons section */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.filter-buttons button,
+.filter-buttons a {
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.filter-buttons a.reset {
+  background-color: #e74c3c;
+}
+
+.filter-buttons button:hover,
+.filter-buttons a:hover {
+  background-color: #03995f;
+}
+
+.filter-buttons a.reset:hover {
+  background-color: #c0392b;
+}
+
+/* ===== Data Section ===== */
+.data-section {
+  max-width: 1000px;
+  margin: 50px auto 60px;
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.summary-msg {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #04AA6D;
+  margin-bottom: 20px;
+}
+
+/* Table */
+.data-table {
+  width: 95%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.data-table th {
+  background-color: #04AA6D;
+  color: white;
+  position: sticky;
+  top: 0;
+  font-weight: bold;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.data-table tr:hover {
+  background-color: #eaf6f0;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+/* ===== Bootstrap Override Fixes ===== */
+select, input, button {
+  all: unset;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+}
+
+button, a.reset {
+  all: unset;
+  background-color: #04AA6D;
+  color: white !important;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none !important;
+}
+
+a.reset {
+  background-color: #e74c3c;
+}
+

@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* ===== Top Navigation ===== */
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-links a {
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-links a.active {
+  background-color: #04AA6D;  /* green highlight */
+  color: white;               /* text color */
+  font-weight: bold;          /* make active tab bold */
+  border-radius: 6px;         /* rounded edges for a smooth look */
+  box-shadow: 0 0 8px rgba(0, 255, 128, 0.4); /* subtle glow */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+
+.search-container input {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+}
+
+/* ===== Main Layout ===== */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.info-box {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-box:hover {
+  transform: scale(1.02);
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ===== Persona Section ===== */
+/* ===== Persona Section (smaller card version) ===== */
+.personas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+
+
+.persona-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 180px;
+  text-align: center;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* force control over image size */
+.persona-card img {
+  width: 100px !important;     /* fixed width */
+  height: 100px !important;    /* fixed height */
+  max-width: 100px !important;
+  max-height: 100px !important;
+  object-fit: cover;           /* clean crop */
+  border-radius: 50%;          /* round avatar look */
+  display: block;
+  margin: 10px auto;
+  flex-shrink: 0;              /* prevent stretching */
+  border: 2px solid #ddd;      /* subtle border frame */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.persona-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.persona-card p {
+  padding: 8px;
+  font-size: 12px;            /* smaller text */
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.persona-card b {
+  display: block;
+  font-size: 13px;
+  color: #000;
+  margin-bottom: 3px;
+}
+
+/* ===== Footer ===== */
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+.persona-card img {
+  background: pink;
+  outline: 2px solid red;
+}
+
+
+.persona-img-wrapper {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+div.persona-card img.persona-img {
+  border-radius: 50% !important;
+}
+

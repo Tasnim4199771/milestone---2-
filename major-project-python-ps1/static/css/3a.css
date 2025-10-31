@@ -1,0 +1,218 @@
+/*
+ * Compatible CSS Style for Level 3 Sub-task A (Infection Data List View)
+ *
+ */
+
+/* ===== Top Navigation Bar Styles ===== */
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 17px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+}
+
+.nav-links a.active {
+    background-color: #04AA6D; /* Primary green for active link */
+    color: white;
+}
+
+/* ===== Main Layout & Panel Styles ===== */
+
+.main-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px; /* Space between filter and data panels */
+    padding: 0 15px;
+}
+
+.filter-panel {
+    flex: 0 0 280px; /* Fixed width for the filter panel */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.data-panel {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ===== Header/Title Consistency Styles ===== */
+
+/* Style for the heading in the data panel for clarity */
+.data-panel h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+/* Style for the heading in the filter panel for clarity and separation */
+.filter-panel h2 {
+    color: #333;
+    border-bottom: 2px solid #04AA6D; /* Use the primary green for a separator */
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+/* ===== Filter Panel Input/Button Consistency ===== */
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.filter-group input[type="text"],
+.filter-group input[type="month"],
+.filter-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Apply/Reset Button Styling */
+.apply-reset {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.apply-reset button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    flex-grow: 1;
+    transition: background-color 0.2s;
+}
+
+.apply-reset .apply {
+    background-color: #04AA6D; /* Primary color */
+    color: white;
+}
+
+.apply-reset .apply:hover {
+    background-color: #048858;
+}
+
+.apply-reset .reset {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.apply-reset .reset:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* ===== Data List Structure (Replaces Table) ===== */
+
+/* Data List Container - Gives the overall panel look */
+.data-list-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Data Entry (Row) - Uses CSS Grid to define columns */
+.data-entry {
+    display: grid;
+    /* 5 columns: Virus/Variant (wider), Date (narrower), Country, Confirmed Cases, Infection Rate */
+    grid-template-columns: 1.5fr 0.9fr 1fr 1.2fr 1.2fr;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+/* Header Row Style */
+.data-entry.header {
+    background-color: #04AA6D; /* Primary green */
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid #048858;
+}
+
+/* Alternating Row Colors (Striped effect for readability) */
+.data-list-container .data-entry:nth-child(2n) {
+    /* Targets the even-numbered rows (starting from the first data row after the header) */
+    background-color: #f7f7f7; /* Light gray for subtle striping */
+}
+
+/* Remove bottom border from the last item */
+.data-list-container .data-entry:last-child {
+    border-bottom: none;
+}
+
+/* ===== Individual Data Field Styling ===== */
+
+.data-field {
+    padding-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Center-align and bold the Infection Rate (%) for visual emphasis */
+.data-field.percentage {
+    font-weight: bold;
+    text-align: center;
+    color: #C0392B; /* Use a red/alert color for infection rate emphasis */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .filter-panel {
+        flex: auto;
+    }
+    /* Adjust grid columns for better fit on small screens if necessary */
+    .data-entry {
+        grid-template-columns: 1fr 1fr; /* Example: Stack columns on top of each other */
+        row-gap: 5px;
+    }
+    .data-entry.header {
+        display: none; /* Hide header on very small screens if columns stack */
+    }
+}
